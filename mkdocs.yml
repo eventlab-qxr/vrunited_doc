@@ -1,0 +1,31 @@
+site_name: VRUnited Documentation
+site_description: Official setup guide and documentation for VRUnited template.
+theme:
+  name: material
+  features:
+    - navigation.indexes 
+    - navigation.footer  
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+nav:
+  - Setup Guide: index.md
+
+# Activa el soporte nativo para diagramas si los necesitáis en el futuro
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
