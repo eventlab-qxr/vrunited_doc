@@ -22,6 +22,10 @@ theme:
 nav:
   - Home: index.md
   - Setup Guide: sections/setupguide/index.md
+  - Asset Management:
+    - Overview: sections/asset_management/index.md
+    - Local Assets: sections/asset_management/local_assets/index.md
+    - Remote Assets: sections/asset_management/remote_assets/index.md
 
 # Activa el soporte nativo para diagramas si los necesitáis en el futuro
 markdown_extensions:
