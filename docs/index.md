@@ -1,76 +1,34 @@
-# VRUnited Template Setup Guide
+# Welcome to VRUnited
 
-Follow these steps to download, configure, and build your custom VRUnited project.
+**VRUnited** is a virtual reality (VR) application developed by the Event Lab (University of Barcelona) that supports multiple people simultaneously interacting in the same shared environment. It serves as a platform for delivering shared virtual experiences, functioning as a customized Metaverse.
 
-## 1. Download VRUnited Template
-* Open your preferred Git client (the video demonstrates using TortoiseGit via Windows File Explorer).
-* Clone the main repository using the following URL: `git@gitlab.com:vrunited/VRUnited-Main.git`.
-* Set your local destination folder (e.g., `C:\Users\[YourUser]\UnityProjects\MyVRUnitedProject`) and complete the clone process.
+The platform has been successfully used for a variety of remote applications, including virtual meetings, conferences, concerts, interactive games (like remote chess), and even professional journalistic interviews. A notable use case involved a two-hour interview for the *Financial Times*, conducted in a virtual restaurant with the interviewer in London and the interviewee in New York (read more about this in our [academic publication](#references)).
 
-*(Insert Image 1 here - Timestamp: 00:15 - Git Clone dialog box)*
+## Key Features
 
-*(Insert Image 2 here - Timestamp: 00:32 - Download progress window)*
+VRUnited is designed to meet several crucial requirements for successful collaborative virtual environments:
 
-## 2. Open Project in Unity
-* Open **Unity Hub** and click **Add** to locate your newly cloned project folder.
-* Open the project. The template currently runs on **Unity 6000.0.4f1**.
-* Once the editor loads, a prompt may appear asking to "Enable Meta XR Features". Click **Yes**.
-* The **Project Setup Tool** window will open with recommended fixes. Click **Fix All** in the bottom right corner to automatically resolve missing configuration settings.
+* **Simultaneous Presence:** Multiple participants can be present in the same virtual space, perceiving the same events from their own unique embodied perspectives.
+* **Realistic Embodiment:** Participants are represented by 3D virtual human avatars that closely resemble their real-world appearance. Using state-of-the-art deep learning methods, the system can automatically generate a realistic avatar from just a single frontal RGB image in about 30 minutes.
+* **Cross-Platform Body Tracking:** The platform utilizes the [QuickVR library](#references), adapting automatically to the tracking data provided by different VR devices. It tracks head and hand movements using inverse kinematics and can also track feet, fingers, eyes, or facial expressions if the hardware supports it.
+* **Object Interaction:** Participants can intuitively interact with virtual objects (such as grabbing and "eating" virtual sushi). The state of these objects is seamlessly synchronized across all clients in the environment.
+* **Robust Networking:** VRUnited uses the Photon Network engine to manage client synchronization, ensuring low latency and a persistent, consistent world state across all connected users.
 
-*(Insert Image 3 here - Timestamp: 01:21 - Unity Hub Add Project)*
+## Cross-Device Compatibility
 
-*(Insert Image 4 here - Timestamp: 02:00 - Enable Meta XR Features prompt)*
+While VRUnited has been extensively tested on the most common head-mounted displays on the market—such as **Meta Quest**, **Pico**, and **Oculus Rift**—its underlying architecture is highly adaptable. Because QuickVR (and therefore VRUnited) is built on top of the Unity XR Plugin framework, it should natively run on **any device supported by the Unity XR Plugin**, including all OpenXR compatible devices (such as HTC VIVE or Valve Index).
 
-*(Insert Image 5 here - Timestamp: 02:24 - Project Setup Tool 'Fix All')*
+Additionally, while a VR headset is highly recommended for a fully immersive experience, **it is not strictly required**. VRUnited can also be used on a standard PC in **Desktop mode**. This allows users without VR hardware to join and interact in the same shared environment, ensuring accessibility for everyone (though with a reduced level of immersion).
 
-## 3. Configure Photon (PUN & Voice)
-* In Unity, navigate to the top menu and select **Window > Photon Unity Networking > PUN Wizard**, then click **Locate PhotonServerSettings**.
-* Open your web browser and sign in to your [Photon Dashboard](https://dashboard.photonengine.com).
-* **Create the PUN App:** Click **Create a New App**, set the Photon SDK to **Pun**, enter an Application Name (e.g., `MyVRUnitedProject`), and click **Create**.
-* **Create the Voice App:** Click **Create a New App** again, set the Photon SDK to **Voice**, enter an Application Name (e.g., `MyVRUnitedProject_Voice`), and click **Create**.
-* From your dashboard, copy the **App ID** of your new PUN application and paste it into the **App Id PUN** field within Unity's `PhotonServerSettings` inspector.
-* Copy the **App ID** of your new Voice application and paste it into the **App Id Voice** field in the same inspector.
+Using the VRUnited SDK, developers can easily expand upon the official distribution to add custom scenarios, avatars, and interactions.
 
-*(Insert Image 6 here - Timestamp: 02:51 - Unity Menu PUN Wizard)*
+## References
 
-*(Insert Image 7 here - Timestamp: 03:21 - Photon Dashboard Create App)*
+If you want to learn more about the technical details, the development of the platform, and the specific use case, you can read our published papers:
 
-*(Insert Image 8 here - Timestamp: 04:10 - Unity Inspector PhotonServerSettings)*
+* Oliva, R., Beacco, A., Gallego, J., Gallego Abellan, R., & Slater, M. (2023). **[The Making of a Newspaper Interview in Virtual Reality: Realistic Avatars, Philosophy, and Sushi](https://www.computer.org/csdl/magazine/cg/2023/06/10309197/1RRj4f3COvm)**. *IEEE Computer Graphics and Applications*, 43(6), 117-125.
+* Oliva, R., Beacco, A., Navarro, X., & Slater, M. (2022). **[QuickVR: A standard library for virtual embodiment in unity](https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2022.937191/full)**. *Frontiers in Virtual Reality*, 3:937191.
 
-## 4. Check VR Configuration
-* Go to **Edit > Project Settings** and select **XR Plug-in Management** from the left sidebar.
-* Under the **Android** tab, ensure that the **OpenXR** plug-in provider is checked.
-* Click on **OpenXR** under the XR Plug-in Management dropdown.
-* In the **Interaction Profiles** section, click the `+` icon to add both the **Oculus Touch Controller Profile** and the **Meta Quest Touch Pro Controller Profile**.
-* Under the **OpenXR Feature Groups** section, ensure that **Meta XR** is checked and enabled.
+---
 
-*(Insert Image 9 here - Timestamp: 04:54 - XR Plug-in Management OpenXR checked)*
-
-*(Insert Image 10 here - Timestamp: 05:25 - Interaction Profiles list)*
-
-## 5. Switch Profile and Update Player Settings
-* Navigate to **File > Build Profiles**.
-* Select the **Meta Quest** profile from the list and click **Switch Platform**. Wait for Unity to recompile the scripts and compress assets.
-* Go to **Edit > Project Settings** and select **Player**.
-* Update the **Company Name** and **Product Name** to match your specific project details.
-* Scroll down to **Publishing Settings** and check the **Keystore Manager**. Select your custom keystore file and enter the required **Keystore password** and **Key password**.
-
-*(Insert Image 11 here - Timestamp: 05:58 - Build Profiles Switch Platform)*
-
-*(Insert Image 12 here - Timestamp: 06:22 - Player Settings Company/Product Name)*
-
-*(Insert Image 13 here - Timestamp: 06:50 - Publishing Settings Keystore)*
-
-## 6. Build the Project
-* Return to **File > Build Profiles**.
-* Click **Build**.
-* Create a new folder named `Builds` inside your project directory to keep things organized.
-* Name your file (e.g., `MyVRUnitedProject.apk`) and click **Save**.
-* If a warning prompt appears stating "Missing Project ID", click **Yes** to continue. 
-* Wait for the build process to complete. Your APK is now ready to be deployed to your headset.
-
-*(Insert Image 14 here - Timestamp: 08:14 - Build Profiles Build button)*
-
-*(Insert Image 15 here - Timestamp: 08:26 - Windows Explorer Save APK)*
-
-*(Insert Image 16 here - Timestamp: 08:37 - Missing Project ID warning)*
+**Next Steps:** Ready to create your own Metaverse? Check out our [Setup Guide](sections/setupguide/index.md) to download the template and configure your project.

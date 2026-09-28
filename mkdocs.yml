@@ -20,7 +20,8 @@ theme:
         name: Switch to light mode
 
 nav:
-  - Setup Guide: index.md
+  - Home: index.md
+  - Setup Guide: sections/setupguide/index.md
 
 # Activa el soporte nativo para diagramas si los necesitáis en el futuro
 markdown_extensions:
