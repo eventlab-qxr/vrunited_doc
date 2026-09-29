@@ -2,6 +2,10 @@
 
 Follow these steps to download, configure, and build your custom VRUnited project.
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto; margin-bottom: 2rem;">
+    <iframe src="https://www.youtube.com/embed/WnZhE956HrM" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+
 ## 1. Download VRUnited Template
 
 1. Navigate to the desired directory on your computer where you want to clone the project (create the directory if it does not exist yet).
