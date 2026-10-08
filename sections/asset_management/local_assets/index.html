@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#adding-local-assets" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -357,6 +362,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local Assets
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -374,6 +399,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-adding-local-avatars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Adding Local Avatars
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-adding-local-scenes-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Adding Local Scenes (Environments)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configuring-spawn-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Configuring Spawn Points
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-testing-local-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Testing Local Assets
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -432,6 +520,60 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-adding-local-avatars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Adding Local Avatars
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-adding-local-scenes-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Adding Local Scenes (Environments)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configuring-spawn-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Configuring Spawn Points
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-testing-local-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Testing Local Assets
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -448,9 +590,87 @@
 
 
 
-  <h1>Local Assets</h1>
+<h1 id="adding-local-assets">Adding Local Assets</h1>
+<p>In this section, we will cover how to add custom avatars and scenarios locally to your VRUnited project. These assets will be included directly in your application build.</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto; margin-bottom: 2rem;">
+    <iframe src="https://www.youtube.com/embed/ZIANOexk_Z8" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
 
-
+<h2 id="1-adding-local-avatars">1. Adding Local Avatars</h2>
+<ul>
+<li>In the top menu, go to <strong>Assets &gt; Import Package &gt; Custom Package...</strong> and select your custom avatar package to import it into your project.</li>
+<li>A quick way to locate the <code>VRULocalAvatars</code> asset is to open the <code>PhotonGameLogic</code> scene (the initial scene containing the main VRUnited logic). In the Hierarchy, select the <code>GameManager</code> object located under <code>__SingletonManagers__</code>.</li>
+</ul>
+<p><img alt="Select GameManager in Hierarchy" src="images/local_avatars_01.png" /></p>
+<ul>
+<li>In the Inspector for the <code>GameManager</code>, you will see attributes referencing both the local avatars and local scenes assets. Clicking on the local avatars attribute will automatically highlight and locate the <code>VRULocalAvatars</code> asset in your Project window.</li>
+</ul>
+<p><img alt="GameManager Inspector Local Avatars" src="images/local_avatars_02.png" /></p>
+<ul>
+<li>Select the <code>VRULocalAvatars</code> asset. In the Inspector, expand the Avatars list and increase its size to add a new element. Drag and drop your custom avatar prefab from the Project window into the new empty slot.</li>
+<li><strong>Configure Avatar Settings:</strong> For the newly added avatar, you must configure two key properties:<ul>
+<li><strong>Address:</strong> A unique alphanumeric identifier for this avatar. Ensure it does not match any existing avatar addresses. This code is used to unlock the avatar during the avatar selection phase.</li>
+<li><strong>Is Locked:</strong> A checkbox that indicates whether the avatar is locked by default. If it is locked, users must input the <strong>Address</strong> code in the avatar selection screen to unlock it. If it is unlocked (unchecked), the avatar is available to be selected right from the start without requiring any code.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Avatar Address and Locked properties" src="images/local_avatars_03.png" /></p>
+<h2 id="2-adding-local-scenes-environments">2. Adding Local Scenes (Environments)</h2>
+<ul>
+<li>Import your custom scene package using <strong>Assets &gt; Import Package &gt; Custom Package...</strong>.</li>
+<li>Similar to the avatars, you can quickly find the <code>VRULocalScenes</code> asset by selecting the <code>GameManager</code> in the <code>PhotonGameLogic</code> scene and clicking on the local scenes attribute in the Inspector.</li>
+<li>Select the <code>VRULocalScenes</code> asset. In the Inspector, expand the Scenes list and increase its size to create a new entry.</li>
+<li>Configure the <strong>Scene Settings</strong> properties for the new entry:<ul>
+<li><strong>Name:</strong> This must exactly match the filename of your local scene.</li>
+<li><strong>Display Name:</strong> The descriptive name that will be shown during the environment selection phase. It does not need to match the filename.</li>
+<li><strong>Thumbnail:</strong> A representative image of the scene used for quick identification in the selection menu. This can be left empty and added later.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="VRULocalScenes Inspector" src="images/local_scenes_00.png" /></p>
+<ul>
+<li>Navigate to <strong>File &gt; Build Profiles</strong>. Ensure your new scene is added to the <strong>Scene List</strong> by dragging it into the window or clicking <strong>Add Open Scenes</strong> while the scene is active.</li>
+</ul>
+<p><img alt="Build Profiles Scene List" src="images/local_scenes_01.png" /></p>
+<h2 id="3-configuring-spawn-points">3. Configuring Spawn Points</h2>
+<ul>
+<li>Open your newly imported custom scene in the Unity Editor.</li>
+<li>In the Hierarchy, create an Empty GameObject (e.g., <code>MySpawnPoints</code>) to organize your spawn locations.</li>
+<li>Create another Empty GameObject as a child of the previous one (e.g., <code>Spawn_00</code>).</li>
+<li>Select <code>Spawn_00</code>, click <strong>Add Component</strong> in the Inspector, and search for the <strong>VRU Spawnner Point</strong> script to attach it.</li>
+</ul>
+<p><img alt="VRU Spawnner Point Component" src="images/spawn_points_00.png" /></p>
+<ul>
+<li>Use the Move Tool to position the <code>Spawn_00</code> object exactly where you want the player to appear within the room.</li>
+<li>Configure the <strong>VRU Spawnner Point</strong> attributes in the Inspector:<ul>
+<li><strong>Initial Pose:</strong> Defines the starting pose of the avatar (e.g., whether they will appear sitting or standing).</li>
+<li><strong>Reserved For:</strong> A list containing the IDs (Addresses) of the avatars for which this spawn point is reserved. If the list is empty, any avatar can use this spawn point. If it contains one or more elements, only avatars with those matching Addresses can spawn here.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Positioning the Spawn Point" src="images/spawn_points_01.png" /></p>
+<ul>
+<li>Repeat this process (creating additional child objects like <code>Spawn_01</code>, <code>Spawn_02</code>, etc.) to define all the spawn points needed for the maximum number of players the scene supports. For example, if your scene is designed for up to 4 players, you must define 4 separate spawn points.</li>
+</ul>
+<h2 id="4-testing-local-assets">4. Testing Local Assets</h2>
+<ul>
+<li>Press the <strong>Play</strong> button in the Unity Editor to test the project.</li>
+<li>Select either <strong>Multiplayer</strong> or <strong>Solo</strong> mode from the starting menu. Choose Multiplayer if you want to test the scene and multiple spawn points with other users, or Solo if you want to explore the environment by yourself without other players.</li>
+<li>In the Avatar Selection screen, you will stand in front of a mirror reflecting your currently selected avatar. If you are using a VR headset, you are embodied in this avatar and can move your virtual body using your physical movements and VR controllers.</li>
+<li>Use the arrows next to the mirror to cycle through your unlocked avatars. If the avatar you want to test is locked, click the <strong>Add Avatar</strong> button and input its unique ID (Address). It will immediately become available for selection.</li>
+</ul>
+<p><img alt="Avatar Selection Screen" src="images/testing_00.png" /></p>
+<ul>
+<li>Once you are happy with your choice, click the <strong>Select</strong> button to confirm your avatar and proceed to the next phase.</li>
+<li>Click on <strong>Create Room</strong> to begin setting up your virtual space.</li>
+<li>On the Environment Selection screen, look for your new custom scene, ensure it appears with its assigned thumbnail, and select it.</li>
+</ul>
+<p><img alt="Environment Selection Screen" src="images/testing_01.png" /></p>
+<ul>
+<li>Finally, enter a name for your room (e.g., "Test") and complete the creation process. </li>
+<li>You will load into the room. Confirm that your avatar spawns correctly at the designated spawn point and with the correct initial pose.</li>
+</ul>
+<p><img alt="Environment Selection Screen" src="images/testing_02.png" /></p>
 
 
 
