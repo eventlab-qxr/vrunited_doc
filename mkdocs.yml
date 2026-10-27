@@ -25,7 +25,11 @@ nav:
   - Asset Management:
     - Overview: sections/asset_management/index.md
     - Local Assets: sections/asset_management/local_assets/index.md
-    - Remote Assets: sections/asset_management/remote_assets/index.md
+    - Remote Assets: 
+      - Architecture Overview: sections/asset_management/remote_assets/index.md
+      - 1. Setting Up CCD: sections/asset_management/remote_assets/setup_ccd/index.md
+      - 2. Configuring Producers: sections/asset_management/remote_assets/producers/index.md
+      - 3. Configuring Consumer: sections/asset_management/remote_assets/consumer/index.md
 
 # Activa el soporte nativo para diagramas si los necesitáis en el futuro
 markdown_extensions:
