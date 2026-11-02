@@ -9,9 +9,20 @@ Follow these steps to download, configure, and build your custom VRUnited projec
 ## 1. Download VRUnited Template
 
 1. Navigate to the desired directory on your computer where you want to clone the project (create the directory if it does not exist yet).
+
 2. Clone the repository using the command line or your preferred Git client (e.g., TortoiseGit). You can clone the project using either of the following methods:
-   * **SSH:** `git@gitlab.com:vrunited/VRUMain.git`
-   * **HTTPS:** `https://gitlab.com/vrunited/VRUMain.git`
+
+    - **SSH:**
+
+        ```text
+        git@gitlab.com:vrunited/VRUMain.git
+        ```
+
+    - **HTTPS:**
+
+        ```text
+        https://gitlab.com/vrunited/VRUMain.git
+        ```
 
 ![TortoiseGit Clone Dialog](images/download_00.png)
 

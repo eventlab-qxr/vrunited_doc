@@ -4,7 +4,8 @@ theme:
   name: material
   features:
     - navigation.indexes 
-    - navigation.footer  
+    - navigation.footer
+    - content.code.copy  
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
