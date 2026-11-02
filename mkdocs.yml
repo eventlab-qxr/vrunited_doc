@@ -33,6 +33,8 @@ nav:
 
 # Activa el soporte nativo para diagramas si los necesitáis en el futuro
 markdown_extensions:
+  - admonition
+  - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
