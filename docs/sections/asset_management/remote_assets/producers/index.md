@@ -29,7 +29,6 @@ To force the creation of the first Release and reveal these IDs, you must upload
 * Once the upload finishes, a "Create Release" dialog will appear. Click **Submit** to confirm.
 * Wait a few seconds for the Dashboard to refresh. You should now see the `Release 1` badge and, more importantly, a new section detailing your **Project ID**, **Environment ID**, and **Bucket ID**.
 
-*(Screenshot suggestion: Timestamp 01:54)*
 ![Bucket Initialization](images/producers_01.png)
 
 Now that you have access to the necessary IDs, you must clean up the bucket to ensure it remains strictly for your project assets:
@@ -52,43 +51,42 @@ https://github.com/vrunited/vrunited.sdk.git
 
 * Click **Install** to proceed with the package installation. Wait for the process to finish. 
 
-*(Screenshot suggestion: Timestamp 02:18)*
 ![Install SDK via Git URL](images/producers_02.png)
 
-## 3. Configuring the Addressables Profile
+## 4. Configuring the Addressables Profile
 
-To ensure files are organized by platform (Windows vs Android) without overwriting each other, VRUnited uses a custom CCD configuration tool.
+To ensure files are organized by platform (Windows vs Android) without overwriting each other, use the custom CCD configuration tool included in the VRUnited SDK.
 
 * From the top menu, go to **VRUnited > CCD Configuration**.
-* A custom window will appear. Input the **Project ID**, **Environment ID** (or name, e.g., `production`), and the **Bucket ID** matching the bucket you just created.
+* A custom window will appear. Input the **Project ID**, **Environment ID**, and **Bucket ID** matching the bucket you initialized in Step 2.
 * Leave the **Release ID** field empty to automatically target the `latest` version.
 * Click **Apply to Addressables Profile**. 
 
 *(Screenshot suggestion: Timestamp 03:11)*
-![VRUnited CCD Configuration Window](images/producers_02.png)
+![VRUnited CCD Configuration Window](images/producers_03.png)
 
 This tool automatically overrides your active Addressables Profile to use the `[BuildTarget]` macro, ensuring builds are strictly separated into `StandaloneWindows64/` and `Android/` paths during compilation.
 
 *(Screenshot suggestion: Timestamp 04:06)*
-![Addressables Profile Configuration](images/producers_03.png)
+![Addressables Profile Configuration](images/producers_04.png)
 
-## 4. Converting Assets to Addressables
+## 4. Configuring the Addressables Profile
 
-Your custom content (scenes or prefabs) must be marked as Addressables and assigned to a Remote Group.
+To ensure files are organized by platform (Windows vs Android) without overwriting each other, use the custom CCD configuration tool included in the VRUnited SDK.
 
-* Go to **Window > Asset Management > Addressables > Groups**.
-* Create a new Group (e.g., `RemoteEnvironments`) or select an existing one.
-* In the Inspector for that group, ensure both **Build Path** and **Load Path** are set to **Remote.BuildPath** and **Remote.LoadPath**.
+* From the top menu, go to **VRUnited > Init Addressable Settings**. This action automatically creates the `VRUnited` profile and initializes the required labels (`VRUSceneSettings` and `VRUAvatar`).
+* Go to **Window > Asset Management > Addressables > Profiles** and ensure the newly created `VRUnited` profile is set as the active profile.
+* In the profile settings, select **Custom** from the dropdown menu for both `Local` and `Remote` paths.
 
-*(Screenshot suggestion: Timestamp 05:21)*
-![Group Remote Paths](images/producers_04.png)
+![VRUnited CCD Configuration Window](images/producers_04_00.png)
 
-* Locate your scene or avatar prefab in the Project window and check the **Addressable** box in its Inspector. 
-* Drag and drop the asset into your newly created Remote Group in the Addressables Groups window.
-* Simplify its **Address** string (e.g., `RomanPantheon`) as this will be the ID used to load the asset in VRUnited.
+* From the top menu, go to **VRUnited > CCD Configuration**.
+* A custom window will appear. Input the **Project ID**, **Environment ID**, and **Bucket ID** matching the bucket you initialized in Step 2.
 
-*(Screenshot suggestion: Timestamp 07:18)*
-![Make Asset Addressable](images/producers_05.png)
+![Addressables Profile Configuration](images/producers_04_01.png)
+
+* Leave the **Release ID** field empty to automatically target the `latest` version.
+* Click **Apply to Addressables Profile**. This will modify the **Remote.LoadPath** to automatically point to your bucket, and `[BuildTarget]` macro is used ensuring builds are strictly separated into `StandaloneWindows64/` and `Android/` paths during compilation.
 
 ## 5. Building the Addressables
 
