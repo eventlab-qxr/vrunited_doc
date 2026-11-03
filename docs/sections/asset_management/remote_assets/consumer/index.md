@@ -10,24 +10,23 @@ The main VRUnited project acts as the consumer of the remote assets. It does not
 
 To allow the main project to securely query the Unity Cloud API and discover your remote buckets, you must create a dedicated Service Account.
 
-* Log into the [Unity Cloud Dashboard](https://cloud.unity.com/) and navigate to your organization (e.g., `EventLabProjects`).
-* In the left-hand menu, navigate to **Administration > Service accounts**.[cite: 6]
-* Click the **+ New** button in the top right corner.[cite: 6]
-* Give the service account a descriptive name (e.g., `ccd-manager`) and click **Create**.[cite: 6]
+* Log into the [Unity Cloud Dashboard](https://cloud.unity.com/) and select the Unity Cloud Project you created during the "Setting Up CCD" phase.
+* Access your organization's administration profile. To do this, click the button with your organization's name in the top right corner to open the dropdown menu, and select **Manage organization**.
+* In the left-hand navigation menu, select **Service accounts**.
+* Click the **+ New** button in the top right corner.
+* Give the service account a descriptive name (e.g., `ccd-manager`) and click **Create**.
 
-*(Screenshot suggestion: Timestamp 00:34)*
 ![Create Service Account](images/consumer_00.png)
 
 ## 2. Generate and Store Keys
 
 Once the Service Account is created, you must generate the security keys required for authentication.
 
-* In the Service Account details page, locate the **Keys** section and click **+ Add key**.[cite: 6]
-* A dialog will appear displaying the new **Key ID** and the **Secret key**.[cite: 6]
-* **Crucial Step:** You must copy and save the `Secret key` immediately (e.g., in a temporary Notepad file). For security reasons, Unity will never display this Secret key again once you close the dialog.[cite: 6]
-* Click **Done**.[cite: 6]
+* In the Service Account details page, locate the **Keys** section and click **+ Add key**.
+* A dialog will appear displaying the new **Key ID** and the **Secret key**.
+* **Crucial Step:** You must copy and save the `Secret key` immediately (e.g., in a temporary Notepad file). For security reasons, Unity will never display this Secret key again once you close the dialog.
+* Click **Done**.
 
-*(Screenshot suggestion: Timestamp 00:54)*
 ![Copy Keys](images/consumer_01.png)
 
 ## 3. Assign Permissions
@@ -35,10 +34,9 @@ Once the Service Account is created, you must generate the security keys require
 For the Service Account to function, you must grant it specific roles to access your project's Cloud Content Delivery data.
 
 * Scroll down on the Service Account page to the **Organization roles** section.
-* Click **+ Manage organization roles**.[cite: 6]
-* Under the **LiveOps** category, check the **Cloud Content Delivery API Public Editor** role and click **Save**.[cite: 6]
+* Click **+ Manage organization roles**.
+* Under the **LiveOps** category, check the **Cloud Content Delivery API Public Editor** role and click **Save**.
 
-*(Screenshot suggestion: Timestamp 01:51)*
 ![Assign Organization Roles](images/consumer_02.png)
 
 ## 4. Check Remote Assets Access
@@ -46,34 +44,39 @@ For the Service Account to function, you must grant it specific roles to access 
 With the credentials ready, you must configure the VRUnited main project to use them for discovering the remote environments.
 
 * Open the main VRUnited Unity project.
-* Navigate to **VRUnited > Test CCD Connection** from the top menu.[cite: 6]
-* A custom window will appear. Input your **Project ID** and **Environment ID** (these can be found in the Cloud Dashboard under your project's CCD settings).[cite: 6]
-* In the **Service Account** section, input the **Key ID** and the **Secret Key** you generated in Step 2.[cite: 6]
-* Click the **Test Connection & List Buckets** button.[cite: 6]
-* If successful, the window will list the buckets found in your cloud environment. Click **List Latest Release Files** to verify that your uploaded `.hash` and `.bundle` files are properly discovered.[cite: 6]
+* Navigate to **VRUnited > Test CCD Connection** from the top menu.
+* A custom window will appear. Input your **Project ID** and **Environment ID** (these can be found in the Cloud Dashboard under your project's CCD settings).
+* In the **Service Account** section, input the **Key ID** and the **Secret Key** you generated in Step 2.
+* Click the **Test Connection & List Buckets** button.
+* If successful, the window will list the buckets found in your cloud environment. Click **List Latest Release Files** to verify that your uploaded `.hash` and `.bundle` files are properly discovered.
 
-*(Screenshot suggestion: Timestamp 03:15)*
 ![Test CCD Connection](images/consumer_03.png)
 
 ## 5. Configure the Server Path
 
-Finally, you must permanently store these connection settings in the project so the dynamic loading system can use them at runtime.
+Finally, you must permanently store these connection settings in the project so the dynamic loading system can find the remote catalogs at runtime. VRUnited handles this through a dedicated configuration asset.
 
-* In the Project window, navigate to your Resources folder and locate the `QuickAddressablesSettings` object (or go to **VRUnited > Addressables Settings** if available).[cite: 6]
-* In the Inspector, ensure the **Server Type** is set to **Unity Cloud**.[cite: 6]
-* Input your **Project ID**, **Environment ID**, **Service Account Key ID**, and **Service Account Secret Key** into the corresponding fields.[cite: 6]
+* In the Project window, navigate to your Resources folder and locate the `QuickAddressablesSettings` object.
+* This asset contains a list of `ServerPathData` configurations. Each path definition includes:
+    * **Environment:** Specifies where this path is valid (e.g., Editor, Build, or Both).
+    * **Server Type:** A dropdown to select the distribution method:
+        * `Local`: Uses a local path on the device (can be relative to the `Assets/` folder). Ideal for testing.
+        * `PHP Server`: (Legacy) The old remote distribution system. (Not recommended for new assets).
+        * `Unity Cloud`: The new dynamic remote asset system using CCD.
+* In the Inspector, create a new server path and set its **Server Type** to **Unity Cloud**.
+* When `Unity Cloud` is selected, the generic Path field is replaced by specific cloud credential fields. Input your **Project ID**, **Environment ID**, **Service Account Key ID**, and **Service Account Secret Key**. The `QuickAddressablesManager` will automatically use these attributes to build the correct remote URL dynamically at runtime to locate and load the catalogs.
 
-*(Screenshot suggestion: Timestamp 04:16)*
 ![Configure Server Path](images/consumer_04.png)
 
 ## 6. Checking Remote Assets in Play Mode
 
-To verify the entire workflow, run the application in the Editor.
+To verify the entire workflow, run the application in the Editor. We will test loading both a remote avatar and a remote scene simultaneously.
 
-* Press the **Play** button in the Unity Editor.[cite: 6]
-* Navigate through the VRUnited menu (e.g., select **Multiplayer**, then choose an avatar).
-* When you reach the **Select Environment** screen, your remote scene (e.g., `My Pantheon`) should now appear alongside the local basic scenes.[cite: 6]
-* Click on the remote scene to load it. The application will dynamically download the `.bundle` from the cloud and instantiate the environment.
+* Press the **Play** button in the Unity Editor.
+* Navigate through the VRUnited main menu and select ether **Solo** mode or **Multiplayer**, in case that you want to test it with multiple participants.
+* When you reach the Avatar Selection screen, you can unlock avatars by their ID. In order to do so, select **Add Avatar** and in the text field, input the exact ID of the remote avatar you configured earlier (e.g., `albert`). When you are happy with your avatar, click on **Select**. 
+* Proceed to create a virtual room by selecting **Create Room**. Then select the environment that will be used for this session. Your remote scene (e.g., `My Pantheon`) should now appear automatically discovered alongside the local basic scenes that you have defined.
+* Click on the remote scene (`My Pantheon`). 
+* The application will dynamically connect to the CCD, download the necessary `.bundle` files for both the scene and the avatar, and instantiate them together. You should now see your remote character correctly loaded inside your remote environment.
 
-*(Screenshot suggestion: Timestamp 05:32)*
-![Remote Scene Loaded](images/consumer_05.png)
+![Remote Scene and Avatar Loaded](images/consumer_05.png)
