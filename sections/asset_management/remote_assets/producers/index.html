@@ -1,0 +1,1110 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Official setup guide and documentation for VRUnited template.">
+      
+      
+      
+      
+        <link rel="prev" href="../setup_ccd/">
+      
+      
+        <link rel="next" href="../consumer/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Configuring Producers - VRUnited Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuring-secondary-projects-producers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="VRUnited Documentation" class="md-header__button md-logo" aria-label="VRUnited Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VRUnited Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuring Producers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="VRUnited Documentation" class="md-nav__button md-logo" aria-label="VRUnited Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VRUnited Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setupguide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asset Management
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Asset Management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../local_assets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local Assets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remote Assets
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Remote Assets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup_ccd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setting Up CCD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring Producers
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring Producers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-creating-the-ccd-bucket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Creating the CCD Bucket
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-bucket-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Bucket Initialization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-installing-the-vrunited-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Installing the VRUnited SDK
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configuring-the-addressables-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Configuring the Addressables Profile
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-create-addressables-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Create Addressables Group
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-configure-remote-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Configure Remote Scene
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-create-scene-addressables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Create Scene Addressables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-create-avatar-addressables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Create Avatar Addressables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-build-addressables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Build Addressables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-uploading-to-ccd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Uploading to CCD
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../consumer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring Consumer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-creating-the-ccd-bucket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Creating the CCD Bucket
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-bucket-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Bucket Initialization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-installing-the-vrunited-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Installing the VRUnited SDK
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configuring-the-addressables-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Configuring the Addressables Profile
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-create-addressables-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Create Addressables Group
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-configure-remote-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Configure Remote Scene
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-create-scene-addressables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Create Scene Addressables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-create-avatar-addressables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Create Avatar Addressables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-build-addressables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Build Addressables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-uploading-to-ccd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Uploading to CCD
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="configuring-secondary-projects-producers">Configuring Secondary Projects (Producers)</h1>
+<p>Secondary projects (also known as Producers) are standalone Unity projects where developers create, configure, and compile custom avatars or environments. Once compiled, these assets are uploaded to Unity Cloud Content Delivery (CCD) so the main VRUnited application can download them dynamically.</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto; margin-bottom: 2rem;">
+    <iframe src="https://www.youtube.com/embed/2kW52V9r6nc" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+
+<h2 id="1-creating-the-ccd-bucket">1. Creating the CCD Bucket</h2>
+<p>To prevent assets from different secondary projects from overwriting each other, you must create an independent Bucket for each producer project.</p>
+<ul>
+<li>Log into the <a href="https://cloud.unity.com/">Unity Cloud Dashboard</a> and select your main VRUnited project.</li>
+<li>Navigate to <strong>LiveOps &gt; Cloud Content Delivery</strong>.</li>
+<li>In the top-right corner, click <strong>Create Bucket</strong>.</li>
+<li>Name the bucket after the specific content you are producing (e.g., <code>MyRemoteEnvironments</code>) and complete the creation process.</li>
+</ul>
+<p><img alt="Create Bucket" src="images/producers_00.png" /></p>
+<h2 id="2-bucket-initialization">2. Bucket Initialization</h2>
+<p>Before configuring Unity, you must initialize the newly created bucket. This step is mandatory. Since the bucket was just created, it does not have any active Releases. Without at least one Release, the Cloud Dashboard will not generate the internal metadata (Project ID, Environment ID, Bucket ID) that you will need later to configure your Addressables.</p>
+<p>To force the creation of the first Release and reveal these IDs, you must upload a dummy file:</p>
+<ul>
+<li>In the Dashboard, open the bucket that you created in the previous step. </li>
+<li>Click the <strong>Upload content using the dashboard</strong> option (or click "Upload Files").</li>
+<li>Drag and drop any small, temporary file from your computer (e.g., a simple text file named <code>MyDummyFile.txt</code>) into the drop area.</li>
+<li>Once the upload finishes, a "Create Release" dialog will appear. Click <strong>Submit</strong> to confirm.</li>
+<li>Wait a few seconds for the Dashboard to refresh. You should now see the <code>Release 1</code> badge and, more importantly, a new section detailing your <strong>Project ID</strong>, <strong>Environment ID</strong>, and <strong>Bucket ID</strong>.</li>
+</ul>
+<p><img alt="Bucket Initialization" src="images/producers_01.png" /></p>
+<p>Now that you have access to the necessary IDs, you must clean up the bucket to ensure it remains strictly for your project assets:</p>
+<ul>
+<li>In the dashboard, click <strong>Remove All Entries</strong>.</li>
+<li>Click <strong>Create Release</strong> again and confirm to generate a new empty Release (e.g., <code>Release 2</code>). Your bucket is now empty and properly initialized with all its IDs exposed.</li>
+</ul>
+<h2 id="3-installing-the-vrunited-sdk">3. Installing the VRUnited SDK</h2>
+<p>With the cloud bucket initialized, the next step is to configure your local Unity editor to handle remote asset creation. To do this, you must install the VRUnited SDK, which contains the automatic CCD configuration tools.</p>
+<ul>
+<li>Open your secondary Unity project, i.e., the Addressables producer.</li>
+<li>Navigate to <strong>Window &gt; Package Manager</strong>.</li>
+<li>Click the <code>+</code> icon in the top-left corner and select <strong>Add package from git URL...</strong></li>
+<li>Input the VRUnited SDK repository URL:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>https://github.com/vrunited/vrunited.sdk.git
+</code></pre></div>
+<ul>
+<li>Click <strong>Install</strong> to proceed with the package installation. Wait for the process to finish. </li>
+</ul>
+<p><img alt="Install SDK via Git URL" src="images/producers_02.png" /></p>
+<h2 id="4-configuring-the-addressables-profile">4. Configuring the Addressables Profile</h2>
+<p>To ensure files are organized by platform (Windows vs Android) without overwriting each other, use the custom CCD configuration tool included in the VRUnited SDK.</p>
+<ul>
+<li>From the top menu, go to <strong>VRUnited &gt; Init Addressable Settings</strong>. This action automatically creates the <code>VRUnited</code> profile and initializes the required labels (<code>VRUSceneSettings</code> and <code>VRUAvatar</code>).</li>
+<li>Go to <strong>Window &gt; Asset Management &gt; Addressables &gt; Profiles</strong> and ensure the newly created <code>VRUnited</code> profile is set as the active profile.</li>
+<li>In the profile settings, select <strong>Custom</strong> from the dropdown menu for both <code>Local</code> and <code>Remote</code> paths.</li>
+</ul>
+<p><img alt="VRUnited CCD Configuration Window" src="images/producers_04_00.png" /></p>
+<ul>
+<li>From the top menu, go to <strong>VRUnited &gt; CCD Configuration</strong>.</li>
+<li>A custom window will appear. Input the <strong>Project ID</strong>, <strong>Environment ID</strong>, and <strong>Bucket ID</strong> matching the bucket you initialized in Step 2.</li>
+</ul>
+<p><img alt="Addressables Profile Configuration" src="images/producers_04_01.png" /></p>
+<ul>
+<li>Leave the <strong>Release ID</strong> field empty to automatically target the <code>latest</code> version.</li>
+<li>Click <strong>Apply to Addressables Profile</strong>. This will modify the <strong>Remote.LoadPath</strong> to automatically point to your bucket, and <code>[BuildTarget]</code> macro is used ensuring builds are strictly separated into <code>StandaloneWindows64/</code> and <code>Android/</code> paths during compilation.</li>
+<li>Once the CCD Settings are applied, go to <strong>Window &gt; Asset Management &gt; Addressables &gt; Settings</strong>.</li>
+<li>In the Inspector, locate the <strong>Catalog</strong> section.</li>
+<li>Ensure the <strong>Build Remote Catalog</strong> checkbox is enabled. </li>
+<li>Verify that both <strong>Build &amp; Load Paths</strong> dropdowns just below it are set to <strong>Remote</strong>.</li>
+</ul>
+<p><img alt="Addressables Catalog Settings" src="images/producers_04_02.png" /></p>
+<h2 id="5-create-addressables-group">5. Create Addressables Group</h2>
+<p>Before marking specific assets as Addressables, you must create a dedicated Group configured to handle remote compilation and distribution. </p>
+<ul>
+<li>Navigate to <strong>Window &gt; Asset Management &gt; Addressables &gt; Groups</strong>.</li>
+<li>Ensure that you have the <strong>VRUnited Profile</strong> selected. </li>
+<li>In the Addressables Groups window, click on <strong>Create &gt; Group &gt; Packed Assets</strong> to generate a new empty group.</li>
+<li>Rename the newly created group to something descriptive (e.g., <code>MyRemoteAssets</code>).</li>
+<li>Select your new group (<code>MyRemoteAssets</code>).</li>
+<li>In the Inspector window, under the <strong>Content Packing &amp; Loading</strong> section, ensure <strong>Build &amp; Load Paths</strong> is set to <strong>Remote</strong>. </li>
+<li>Leave the <strong>Advanced Options</strong> section with the default values. </li>
+</ul>
+<p><img alt="Group Remote Paths" src="images/producers_05.png" /></p>
+<h2 id="6-configure-remote-scene">6. Configure Remote Scene</h2>
+<p>Once your Addressables group is ready, you must prepare the actual Unity Scene that will be distributed remotely. This process is exactly the same as configuring a local scene, requiring the setup of valid spawn points for the avatars.</p>
+<ul>
+<li>Open the scene that you want to distribute (e.g., <code>RomanPantheon</code>).</li>
+<li>In the Hierarchy, create an Empty GameObject (e.g., <code>__SpawnPoints__</code>) to organize your spawn locations.</li>
+<li>Create another Empty GameObject as a child of the previous one (e.g., <code>SpawnPoint_00</code>).</li>
+<li>Select <code>SpawnPoint_00</code>, click <strong>Add Component</strong> in the Inspector, and search for the <strong>VRU Spawner Point</strong> script to attach it.</li>
+</ul>
+<p><img alt="Add Spawn Point Component" src="images/producers_06_01.png" /></p>
+<ul>
+<li>Use the Move Tool to position the <code>Spawn_00</code> object exactly where you want the player to appear within the room.</li>
+<li>Configure the <strong>VRU Spawnner Point</strong> attributes in the Inspector:<ul>
+<li><strong>Initial Pose:</strong> Defines the starting pose of the avatar (e.g., whether they will appear sitting or standing).</li>
+<li><strong>Reserved For:</strong> A list containing the IDs (Addresses) of the avatars for which this spawn point is reserved. If the list is empty, any avatar can use this spawn point. If it contains one or more elements, only avatars with those matching Addresses can spawn here.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Positioning the Spawn Point" src="images/producers_06_02.png" /></p>
+<ul>
+<li>Repeat this process (creating additional child objects like <code>Spawn_01</code>, <code>Spawn_02</code>, etc.) to define all the spawn points needed for the maximum number of players the scene supports.</li>
+</ul>
+<h2 id="7-create-scene-addressables">7. Create Scene Addressables</h2>
+<p>With your remote scene properly configured with spawn points, you must now create a settings descriptor for it, mark both as Addressables, and assign them to your remote group.</p>
+<ul>
+<li>First, locate your configured scene (e.g., <code>RomanPantheon</code>) in the Project window.</li>
+<li>Right-click anywhere in the project folder and navigate to <strong>Create &gt; VRUnited &gt; Scene Settings</strong> to generate a new settings object.</li>
+<li>Rename this new object descriptively (e.g., <code>RomanPantheonSceneSettings</code>).</li>
+<li>Select the newly created <code>VRUSceneSettings</code> object and configure its properties in the Inspector:<ul>
+<li><strong>Scene:</strong> Drag and drop your actual remote scene (<code>RomanPantheon.unity</code>) into this field.</li>
+<li><strong>Address:</strong> This is the internal ID. It <strong>must strictly match</strong> the exact filename of your scene (in this case, type <code>RomanPantheon</code>).</li>
+<li><strong>Display Name:</strong> The friendly name that will appear in VRUnited's UI environment selector (e.g., <code>My Pantheon</code>). This does not need to match the filename.</li>
+<li><strong>Thumbnail:</strong> (Optional but recommended) A representative image of the scene that will be displayed in the VRUnited menu.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Configure Scene Settings" src="images/producers_07_00.png" /></p>
+<ul>
+<li>Now, select both the scene file (<code>RomanPantheon</code>) and the settings object (<code>RomanPantheonSceneSettings</code>) in the Project window and drop both assets into your newly created remote group (e.g., <code>MyRemoteAssets</code>).</li>
+<li><strong>Crucial Step:</strong> In the Addressables Group window, ensure the <strong>Address</strong> string for the settings object is simplified to match its own filename exactly (<code>RomanPantheonSceneSettings</code>), and the <strong>Address</strong> for the scene matches its filename (<code>RomanPantheon</code>).</li>
+<li>Finally, with the settings object selected in the Addressables window, click the dropdown in the <strong>Labels</strong> column and apply the <strong>VRUSceneSettings</strong> label. This allows the main project to discover it as a valid environment.</li>
+</ul>
+<p><img alt="Apply Address and Labels" src="images/producers_07_01.png" /></p>
+<h2 id="8-create-avatar-addressables">8. Create Avatar Addressables</h2>
+<p>The process for remotely distributing avatars is much simpler, as it does not require a custom settings descriptor.</p>
+<ul>
+<li>In the Project window, locate the avatar prefab you wish to distribute remotely.</li>
+<li>Drag and drop your avatar prefab into your remote group (e.g., <code>MyRemoteAssets</code>).</li>
+<li><strong>Crucial Step:</strong> In the <strong>Address</strong> field, you must set the name to match the unique alphanumeric ID that users will use to unlock or load this avatar in the VRUnited avatar selector. It does not need to match the filename.</li>
+<li>With the avatar selected in the Addressables Groups window, click the dropdown in the <strong>Labels</strong> column and apply the <strong>VRUAvatar</strong> label. This critical step ensures the main project identifies the asset as a playable character.</li>
+</ul>
+<p><img alt="Apply VRUAvatar Label" src="images/producers_08.png" /></p>
+<h2 id="9-build-addressables">9. Build Addressables</h2>
+<p>Before pushing your assets to the cloud, you must compile them locally. This process generates the <code>.bundle</code> files, remote catalogs, and hashes required by the Addressables system.</p>
+<ul>
+<li>Open the Addressables Groups window (<strong>Window &gt; Asset Management &gt; Addressables &gt; Groups</strong>).</li>
+<li>If you have built assets previously, it is highly recommended to first click <strong>Build &gt; Clean Build &gt; All</strong> to clear out old data and prevent conflicts.</li>
+<li>Click on <strong>Build &gt; New Build &gt; Default Build Script</strong> to start the compilation.</li>
+<li>Wait for the process to finish. Unity will automatically generate the files and store them in your local <code>ServerData/[BuildTarget]</code> directory (e.g., <code>ServerData/StandaloneWindows64</code>).</li>
+<li><strong>Crucial Step:</strong> You must repeat this build process for <strong>every platform</strong> you want to support. Go to <strong>File &gt; Build Profiles</strong> (or <strong>Build Settings</strong>), select your next target platform (e.g., <em>Android</em>), click <strong>Switch Platform</strong>, and then run the <strong>Build &gt; New Build &gt; Default Build Script</strong> command again.</li>
+</ul>
+<p><img alt="Build Addressables" src="images/producers_09.png" /></p>
+<h2 id="10-uploading-to-ccd">10. Uploading to CCD</h2>
+<p>Once your assets are built locally, the final step is to upload them to your Unity Cloud bucket using the web dashboard.</p>
+<ul>
+<li>Open your web browser and navigate to the <a href="https://cloud.unity.com/">Unity Cloud Dashboard</a>.</li>
+<li>On the left menu, select <strong>Cloud Content Delivery</strong> and open your specific bucket (e.g., <code>MyRemoteEnvironments</code>).</li>
+<li>Click the <strong>Upload Content</strong> option.</li>
+<li>Open your local file explorer and navigate to your Unity project's <code>ServerData</code> directory. </li>
+<li><strong>Crucial Step:</strong> Select the entire platform folder you just built (e.g., the <code>StandaloneWindows64</code> folder itself, not the files inside it) and drag and drop it into the Unity Cloud Dashboard drop area. This ensures the logical path is maintained so Android and Windows files do not overwrite each other.</li>
+</ul>
+<p><img alt="Upload Addressables to CCD" src="images/producers_10.png" /></p>
+<ul>
+<li>Once the upload finishes, you must click the blue <strong>Create Release</strong> button. This step is mandatory to package your uploaded files into an official version and automatically update the <code>latest</code> badge so VRUnited can detect them.</li>
+<li>A confirmation dialog will appear. Click <strong>Next</strong> or <strong>Submit</strong> to finalize the release.</li>
+<li><strong>Repeat:</strong> You must repeat this build, upload, and release process for every other platform you need (e.g., build for <code>Android</code>, then drag and drop the <code>Android</code> folder into the dashboard).</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../setup_ccd/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Setting Up CCD">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Setting Up CCD
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../consumer/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuring Consumer">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Configuring Consumer
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.indexes", "navigation.footer", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
