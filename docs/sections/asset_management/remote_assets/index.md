@@ -16,13 +16,3 @@ To link the producers and the consumer, we use Unity CCD. The structure mimics a
 * **Project & Environment:** A single Unity Cloud Project and Environment (e.g., `production`) acts as the root directory.
 * **Buckets (Sub-projects):** Inside the environment, every producer project creates its own independent "Bucket" (e.g., `avatars`, `restaurant_scene`). This ensures updates from one project do not overwrite assets from another.
 * **Platform Paths:** Within each bucket, assets are separated by platform using dynamic paths (e.g., `StandaloneWindows64/` or `Android/`).
-
----
-
-## Detailed Guides
-
-Follow these steps in order to set up your remote asset pipeline:
-
-1. [Setting Up Unity Cloud Content Delivery](setup_ccd.md)
-2. [Configuring Secondary Projects (Producers)](producers.md)
-3. [Configuring the Main VRUnited Project (Consumer)](consumer.md)
